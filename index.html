@@ -13,6 +13,16 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- PWA: Link ke manifest.json -->
+    <link rel="manifest" href="manifest.json">
+    <!-- PWA: Meta tag untuk iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- PWA: Ikon Apple Touch Icon (opsional, tapi direkomendasikan) -->
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+
     <style>
         :root {
             --primary-color: #4361ee;
@@ -901,6 +911,7 @@
                 </div>
             </div>
 
+            <!-- Placeholder for custom messages/alerts -->
             <div id="alertPlaceholder" style="position: fixed; top: 20px; right: 20px; z-index: 1050; max-width: 300px;"></div>
 
             <footer class="footer">
@@ -1387,7 +1398,7 @@
                     const form = e.target;
                     const date = form.tanggal.value;
                     const type = form.tipe.value;
-                    const category = form.kategoriTransaksi.value; // Ubah ke kategoriTransaksi
+                    const category = form.kategoriTransaksi.value;
                     const amount = parseInt(form.jumlah.value);
                     const note = form.keterangan.value;
 
@@ -2436,6 +2447,19 @@
                         onConfirm();
                         confirmModal.hide();
                     };
+                }
+
+                // PWA: Registrasi Service Worker
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker.register('/service-worker.js')
+                            .then(registration => {
+                                console.log('Service Worker terdaftar dengan scope:', registration.scope);
+                            })
+                            .catch(error => {
+                                console.error('Pendaftaran Service Worker gagal:', error);
+                            });
+                    });
                 }
             </script>
         </body>
