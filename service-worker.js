@@ -1,8 +1,9 @@
 const CACHE_NAME = 'myfinance-app-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  // Pastikan semua path relatif terhadap root repositori GitHub Pages
+  '/Financial-Notes-APP/', // Penting: cache root aplikasi
+  '/Financial-Notes-APP/index.html',
+  '/Financial-Notes-APP/manifest.json',
   // CSS
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css',
@@ -16,14 +17,14 @@ const urlsToCache = [
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js',
   // Icons (pastikan Anda membuat folder 'icons' dan menempatkan ikon di dalamnya)
-  '/icons/icon-72x72.png',
-  '/icons/icon-96x96.png',
-  '/icons/icon-128x128.png',
-  '/icons/icon-144x144.png',
-  '/icons/icon-152x152.png',
-  '/icons/icon-192x192.png',
-  '/icons/icon-384x384.png',
-  '/icons/icon-512x512.png'
+  '/Financial-Notes-APP/icons/icon-72x72.png',
+  '/Financial-Notes-APP/icons/icon-96x96.png',
+  '/Financial-Notes-APP/icons/icon-128x128.png',
+  '/Financial-Notes-APP/icons/icon-144x144.png',
+  '/Financial-Notes-APP/icons/icon-152x152.png',
+  '/Financial-Notes-APP/icons/icon-192x192.png',
+  '/Financial-Notes-APP/icons/icon-384x384.png',
+  '/Financial-Notes-APP/icons/icon-512x512.png'
 ];
 
 // Event: Install Service Worker
@@ -90,7 +91,7 @@ self.addEventListener('fetch', (event) => {
               // Ini bisa diperluas untuk menampilkan halaman offline khusus
               console.log('Service Worker: Fetch gagal, mencoba dari cache untuk offline.');
               // Anda bisa menambahkan logika untuk mengembalikan halaman offline.html di sini
-              // return caches.match('/offline.html');
+              // return caches.match('/Financial-Notes-APP/offline.html'); // Contoh: jika ada halaman offline khusus
             });
         })
     );
