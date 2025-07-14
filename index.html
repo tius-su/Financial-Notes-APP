@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.16/jspdf.plugin.autotable.min.js"></script>
 
     <!-- PWA: Link ke manifest.json -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/Financial-Notes-APP/manifest.json">
     <!-- PWA: Meta tag untuk iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -2449,7 +2449,7 @@
                 // PWA: Registrasi Service Worker
                 if ('serviceWorker' in navigator) {
                     window.addEventListener('load', () => {
-                        navigator.serviceWorker.register('/service-worker.js')
+                        navigator.serviceWorker.register('/Financial-Notes-APP/service-worker.js')
                             .then(registration => {
                                 console.log('Service Worker terdaftar dengan scope:', registration.scope);
                             })
