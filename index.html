@@ -182,56 +182,6 @@
                 font-size: 14px;
             }
         }
-
-        /* DEBUG CSS: Ini adalah CSS debug yang sangat agresif */
-        /* Ini akan memberikan border dan latar belakang pada area daftar kategori */
-        #daftarKategoriPemasukan,
-        #daftarKategoriPengeluaran {
-            border: 5px solid magenta !important; /* Border magenta yang sangat tebal */
-            min-height: 200px !important; /* Tinggi minimum yang lebih besar */
-            background-color: #ffcccc !important; /* Latar belakang merah muda yang mencolok */
-            padding: 20px !important; /* Tambahkan padding agar konten tidak menempel */
-            box-sizing: border-box !important; /* Pastikan padding tidak menambah ukuran total */
-            visibility: visible !important; /* Pastikan terlihat */
-            opacity: 1 !important; /* Pastikan tidak transparan */
-            display: block !important; /* Pastikan ditampilkan sebagai blok */
-        }
-
-        /* Ini akan memberikan border dan memastikan setiap item list terlihat */
-        #daftarKategoriPemasukan li,
-        #daftarKategoriPengeluaran li {
-            border: 3px solid cyan !important; /* Border cyan yang mencolok untuk setiap item list */
-            padding: 15px !important; /* Padding yang lebih besar */
-            color: black !important; /* Pastikan teks berwarna hitam */
-            margin-bottom: 10px !important; /* Spasi antar item yang lebih besar */
-            display: flex !important; /* Pastikan display flex agar kontennya terlihat */
-            justify-content: space-between !important; /* Rata kiri kanan */
-            align-items: center !important; /* Pusatkan vertikal */
-            background-color: white !important; /* Latar belakang putih untuk item list */
-            font-size: 1.2em !important; /* Ukuran font lebih besar */
-            font-weight: bold !important; /* Teks tebal */
-        }
-
-        /* Ini akan memberikan border pada form kategori */
-        #formKategori {
-            border: 5px solid orange !important; /* Border orange yang sangat tebal */
-            padding: 25px !important;
-            background-color: #ffffcc !important; /* Latar belakang kuning muda */
-            visibility: visible !important;
-            opacity: 1 !important;
-            display: block !important;
-        }
-
-        /* Pastikan tab-pane kategori itu sendiri terlihat dan memiliki ruang */
-        #kategori.tab-pane {
-            min-height: 600px !important; /* Beri tinggi minimum yang sangat besar pada tab pane */
-            background-color: #e0ffe0 !important; /* Latar belakang hijau muda yang mencolok */
-            padding: 30px !important; /* Padding di dalam tab pane */
-            visibility: visible !important;
-            opacity: 1 !important;
-            display: block !important;
-        }
-        /* END DEBUG CSS */
     </style>
 </head>
 <body>
@@ -456,8 +406,8 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="kategori" class="form-label">Kategori</label>
-                                        <select id="kategori" class="form-select" required>
+                                        <label for="kategoriTransaksi" class="form-label">Kategori</label>
+                                        <select id="kategoriTransaksi" class="form-select" required>
                                             <option value="">Pilih Kategori</option>
                                         </select>
                                     </div>
@@ -660,7 +610,6 @@
                     </div>
                 </div>
 
-                <!-- START: Kategori Tab Content -->
                 <div class="tab-pane fade" id="kategori">
                     <div class="row">
                         <div class="col-md-6">
@@ -718,7 +667,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- END: Kategori Tab Content -->
 
                 <div class="tab-pane fade" id="laporan">
                     <div class="card mb-4">
@@ -745,32 +693,36 @@
                                         <option value="5">Mei</option>
                                         <option value="6">Juni</option>
                                         <option value="7">Juli</option>
-                                        <option value="8">Agustus</select>
+                                        <option value="8">Agustus</option>
+                                        <option value="9">September</option>
+                                        <option value="10">Oktober</option>
+                                        <option value="11">November</option>
+                                        <option value="12">Desember</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3" id="reportYearContainer">
                                     <label for="reportYear" class="form-label">Tahun</label>
                                     <select id="reportYear" class="form-select">
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3 d-flex align-items-end">
-                                        <button class="btn btn-primary w-100" type="submit" onclick="generateReport()">
-                                            <i class="bi bi-file-earmark-bar-graph me-1"></i> Buat Laporan
-                                        </button>
-                                    </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 d-flex align-items-end">
+                                    <button class="btn btn-primary w-100" type="submit" onclick="generateReport()">
+                                        <i class="bi bi-file-earmark-bar-graph me-1"></i> Buat Laporan
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card">
-                            <div class="card-header">
-                                <span>Hasil Laporan</span>
-                            </div>
-                            <div class="card-body">
-                                <div id="reportResult">
-                                    <div class="text-center py-5">
-                                        <i class="bi bi-file-earmark-text fs-1 text-muted"></i>
-                                        <h5 class="mt-3 text-muted">Pilih filter dan klik "Buat Laporan"</h5>
-                                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Hasil Laporan</span>
+                        </div>
+                        <div class="card-body">
+                            <div id="reportResult">
+                                <div class="text-center py-5">
+                                    <i class="bi bi-file-earmark-text fs-1 text-muted"></i>
+                                    <h5 class="mt-3 text-muted">Pilih filter dan klik "Buat Laporan"</h5>
                                 </div>
                             </div>
                         </div>
@@ -949,6 +901,8 @@
                 </div>
             </div>
 
+            <div id="alertPlaceholder" style="position: fixed; top: 20px; right: 20px; z-index: 1050; max-width: 300px;"></div>
+
             <footer class="footer">
                 <p>&copy; 2025 MyFinance App. All rights reserved.</p>
             </footer>
@@ -956,16 +910,15 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <script>
                 // Firebase configuration - Replace with your actual Firebase config
-        const firebaseConfig = {
-            apiKey: "AIzaSyA0CqESggXkbi2X0A-Slx1W729NNBkYo2k",
-            authDomain: "financial-note-app.firebaseapp.com",
-            databaseURL: "https://financial-note-app-default-rtdb.asia-southeast1.firebasedatabase.app",
-            projectId: "financial-note-app",
-            storageBucket: "financial-note-app.firebasestorage.app",
-            messagingSenderId: "490596877043",
-            appId: "1:490596877043:web:fb826b2dc273ac5e28ed86"
-        };
-
+                const firebaseConfig = {
+                    apiKey: "AIzaSyA0CqESggXkbi2X0A-Slx1W729NNBkYo2k",
+                    authDomain: "financial-note-app.firebaseapp.com",
+                    databaseURL: "https://financial-note-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+                    projectId: "financial-note-app",
+                    storageBucket: "financial-note-app.firebasestorage.app",
+                    messagingSenderId: "490596877043",
+                    appId: "1:490596877043:web:fb826b2dc273ac5e28ed86"
+                };
 
                 // Initialize Firebase
                 firebase.initializeApp(firebaseConfig);
@@ -992,7 +945,7 @@
                     if (user) {
                         // User is signed in.
                         currentUser = user;
-                        console.log("DEBUG: onAuthStateChanged - Pengguna login dengan UID:", currentUser.uid); // Log UID
+                        console.log("DEBUG: onAuthStateChanged - Pengguna login dengan UID:", currentUser.uid);
                         showApp();
                         loadAppData(); // Load data for the logged-in user
                     } else {
@@ -1143,26 +1096,20 @@
                     console.log("DEBUG: loadCategories() - Mencoba memuat kategori untuk UID:", currentUser.uid);
                     db.ref("categories/" + currentUser.uid).on("value", snapshot => {
                         allCategories = [];
-                        const kategoriSelect = document.getElementById('kategori');
+                        // Ambil elemen select yang benar untuk form transaksi utama (di tab catatan)
+                        const kategoriTransaksiSelect = document.getElementById('kategoriTransaksi');
                         const filterKategoriSelect = document.getElementById('filterKategori');
                         const editKategoriSelect = document.getElementById('editKategori');
                         const pemasukanList = document.getElementById('daftarKategoriPemasukan');
                         const pengeluaranList = document.getElementById('daftarKategoriPengeluaran');
 
-                        // DEBUG: Periksa apakah elemen-elemen ditemukan
-                        console.log("DEBUG: Elemen kategoriSelect ditemukan?", !!kategoriSelect);
-                        console.log("DEBUG: Elemen filterKategoriSelect ditemukan?", !!filterKategoriSelect);
-                        console.log("DEBUG: Elemen editKategoriSelect ditemukan?", !!editKategoriSelect);
-                        console.log("DEBUG: Elemen pemasukanList ditemukan?", !!pemasukanList);
-                        console.log("DEBUG: Elemen pengeluaranList ditemukan?", !!pengeluaranList);
-
-
                         // Kosongkan dulu semua dropdown dan list
-                        kategoriSelect.innerHTML = '<option value="">Pilih Kategori</option>';
-                        filterKategoriSelect.innerHTML = '<option value="">Semua</option>';
-                        editKategoriSelect.innerHTML = '<option value="">Pilih Kategori</option>';
-                        pemasukanList.innerHTML = '';
-                        pengeluaranList.innerHTML = '';
+                        if (kategoriTransaksiSelect) kategoriTransaksiSelect.innerHTML = '<option value="">Pilih Kategori</option>';
+                        if (filterKategoriSelect) filterKategoriSelect.innerHTML = '<option value="">Semua</option>';
+                        if (editKategoriSelect) editKategoriSelect.innerHTML = '<option value="">Pilih Kategori</option>';
+                        if (pemasukanList) pemasukanList.innerHTML = '';
+                        if (pengeluaranList) pengeluaranList.innerHTML = '';
+
 
                         console.log("DEBUG: loadCategories() - Isi snapshot kategori:", snapshot.val());
 
@@ -1179,9 +1126,11 @@
                                 const option1 = new Option(category.name, category.name);
                                 const option2 = new Option(category.name, category.name);
                                 const option3 = new Option(category.name, category.name);
-                                kategoriSelect.add(option1);
-                                filterKategoriSelect.add(option2);
-                                editKategoriSelect.add(option3);
+
+                                if (kategoriTransaksiSelect) kategoriTransaksiSelect.add(option1);
+                                if (filterKategoriSelect) filterKategoriSelect.add(option2);
+                                if (editKategoriSelect) editKategoriSelect.add(option3);
+
 
                                 // Populate category lists for management
                                 const listItem = document.createElement('li');
@@ -1197,22 +1146,19 @@
                                         </button>
                                     </div>
                                 `;
-                                console.log("DEBUG: listItem HTML:", listItem.outerHTML); // Log the generated list item HTML
 
                                 if (category.type === 'pemasukan') {
-                                    pemasukanList.appendChild(listItem);
-                                    console.log("DEBUG: Menambahkan item ke daftar pemasukan.");
+                                    if (pemasukanList) pemasukanList.appendChild(listItem);
                                 } else {
-                                    pengeluaranList.appendChild(listItem);
-                                    console.log("DEBUG: Menambahkan item ke daftar pengeluaran.");
+                                    if (pengeluaranList) pengeluaranList.appendChild(listItem);
                                 }
                             });
                         } else {
                             console.log("DEBUG: loadCategories() - Snapshot kategori KOSONG atau TIDAK ADA. Menambahkan kategori default.");
                             addDefaultCategories(); // Add default categories if none exist for this user
                             // Tampilkan pesan "Tidak ada kategori" sementara jika belum ada data
-                            pemasukanList.innerHTML = '<li class="list-group-item text-center py-3">Tidak ada kategori.</li>';
-                            pengeluaranList.innerHTML = '<li class="list-group-item text-center py-3">Tidak ada kategori.</li>';
+                            if (pemasukanList) pemasukanList.innerHTML = '<li class="list-group-item text-center py-3">Tidak ada kategori.</li>';
+                            if (pengeluaranList) pengeluaranList.innerHTML = '<li class="list-group-item text-center py-3">Tidak ada kategori.</li>';
                         }
                     }, (error) => {
                         console.error("DEBUG: Firebase categories read FAILED:", error); // Error handling for read
@@ -1441,7 +1387,7 @@
                     const form = e.target;
                     const date = form.tanggal.value;
                     const type = form.tipe.value;
-                    const category = form.kategori.value;
+                    const category = form.kategoriTransaksi.value; // Ubah ke kategoriTransaksi
                     const amount = parseInt(form.jumlah.value);
                     const note = form.keterangan.value;
 
@@ -1621,11 +1567,10 @@
                                 }
                             });
 
-                            document.getElementById('sumIn').textContent = formatCurrency(totalIn);
-                            document.getElementById('sumOut').textContent = formatCurrency(totalOut);
-                            document.getElementById('saldo').textContent = formatCurrency(totalIn - totalOut);
-
-                            updateMonthlyChart();
+                            // Ensure sumIn, sumOut, and saldo are updated from transactions data
+                            // loadTransactions() is already responsible for this.
+                            // If sumIn/Out/saldo are directly related to debts, calculate them here.
+                            // Otherwise, ensure loadTransactions() runs after debts for full dashboard update.
                         } else {
                             recentTbody.innerHTML = '<tr><td colspan="4" class="text-center py-3">Tidak ada data hutang/piutang</td></tr>';
                             fullTbody.innerHTML = '<tr><td colspan="7" class="text-center py-3">Tidak ada data hutang/piutang</td></tr>';
@@ -1646,10 +1591,10 @@
                     if (debt.status === 'lunas') {
                         statusClass = 'paid';
                         statusText = 'Lunas';
-                    } else if (daysDiff <= 7 && daysDiff >= 0) {
+                    } else if (debt.status === 'belum' && daysDiff <= 7 && daysDiff >= 0) { // Only if still 'belum'
                         statusClass = 'due-soon';
                         statusText = 'Jatuh Tempo';
-                    } else if (daysDiff < 0) {
+                    } else if (debt.status === 'belum' && daysDiff < 0) { // Only if still 'belum'
                         statusClass = 'unpaid';
                         statusText = 'Terlambat';
                     }
@@ -1892,35 +1837,45 @@
                     let reportTitle = '';
                     let startDate, endDate;
 
-                    if (reportType === 'bulanan') {
+                    if (reportType === 'bulanan' || reportType === 'kategori') {
                         startDate = `${year}-${month.padStart(2, '0')}-01`;
                         endDate = `${year}-${month.padStart(2, '0')}-${new Date(year, month, 0).getDate()}`;
-                        reportTitle = `Laporan Bulan ${getMonthName(month)} ${year}`;
+                        reportTitle = `Laporan ${reportType === 'bulanan' ? 'Bulanan' : 'Berdasarkan Kategori'} - ${getMonthName(month)} ${year}`;
 
-                        const monthlyTransactions = allTransactions.filter(t =>
+                        const transactionsForReport = allTransactions.filter(t =>
                             t.date >= startDate && t.date <= endDate
                         );
 
-                        reportData = monthlyTransactions.reduce((acc, t) => {
-                            if (!acc[t.category]) {
-                                acc[t.category] = { pemasukan: 0, pengeluaran: 0 };
+                        reportData = transactionsForReport.reduce((acc, t) => {
+                            const categoryName = t.category || 'Tidak Berkategori'; // Handle uncategorized
+                            if (!acc[categoryName]) {
+                                acc[categoryName] = { pemasukan: 0, pengeluaran: 0 };
                             }
-                            acc[t.category][t.type] += t.amount;
+                            acc[categoryName][t.type] += t.amount;
                             return acc;
                         }, {});
+
+                        // Ensure all categories (even those with no transactions) are included if needed
+                        allCategories.forEach(cat => {
+                            if (!reportData[cat.name]) {
+                                reportData[cat.name] = { pemasukan: 0, pengeluaran: 0 };
+                            }
+                        });
+
+
                     } else if (reportType === 'tahunan') {
                         startDate = `${year}-01-01`;
                         endDate = `${year}-12-31`;
                         reportTitle = `Laporan Tahun ${year}`;
 
-                        const yearlyTransactions = allTransactions.filter(t =>
+                        const transactionsForReport = allTransactions.filter(t =>
                             t.date >= startDate && t.date <= endDate
                         );
 
                         reportData = Array.from({length: 12}, (_, i) => {
                             const monthNum = i + 1;
                             const monthKey = `${year}-${monthNum.toString().padStart(2, '0')}`;
-                            const monthTransactions = yearlyTransactions.filter(t =>
+                            const monthTransactions = transactionsForReport.filter(t =>
                                 t.date.startsWith(monthKey)
                             );
 
@@ -1939,22 +1894,6 @@
                                 saldo: income - expense
                             };
                         });
-                    } else if (reportType === 'kategori') {
-                        startDate = `${year}-${month.padStart(2, '0')}-01`;
-                        endDate = `${year}-${month.padStart(2, '0')}-${new Date(year, month, 0).getDate()}`;
-                        reportTitle = `Laporan Berdasarkan Kategori - ${getMonthName(month)} ${year}`;
-
-                        const monthlyTransactions = allTransactions.filter(t =>
-                            t.date >= startDate && t.date <= endDate
-                        );
-
-                        reportData = monthlyTransactions.reduce((acc, t) => {
-                            if (!acc[t.category]) {
-                                acc[t.category] = { pemasukan: 0, pengeluaran: 0 };
-                            }
-                            acc[t.category][t.type] += t.amount;
-                            return acc;
-                        }, {});
                     }
 
                     displayReport(reportTitle, reportData, reportType);
@@ -1983,7 +1922,11 @@
                         let totalIncome = 0;
                         let totalExpense = 0;
 
-                        for (const [category, amounts] of Object.entries(data)) {
+                        // Sort categories alphabetically for consistent reporting
+                        const sortedCategories = Object.keys(data).sort();
+
+                        sortedCategories.forEach(category => {
+                            const amounts = data[category];
                             const income = amounts.pemasukan || 0;
                             const expense = amounts.pengeluaran || 0;
                             const balance = income - expense;
@@ -1993,13 +1936,14 @@
 
                             html += `
                                 <tr>
-                                    <td>${category || 'Tidak Berkategori'}</td>
+                                    <td>${category}</td>
                                     <td class="text-end">${formatCurrency(income)}</td>
                                     <td class="text-end">${formatCurrency(expense)}</td>
                                     <td class="text-end ${balance >= 0 ? 'text-success' : 'text-danger'}">${formatCurrency(balance)}</td>
                                 </tr>
                             `;
-                        }
+                        });
+
 
                         const totalBalance = totalIncome - totalExpense;
 
@@ -2012,6 +1956,14 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button class="btn btn-sm btn-outline-success me-1" onclick="exportReportExcel()">
+                                <i class="bi bi-file-earmark-excel"></i> Excel
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="exportReportPDF()">
+                                <i class="bi bi-file-earmark-pdf"></i> PDF
+                            </button>
                         </div>
                         `;
 
@@ -2036,7 +1988,7 @@
 
                         data.forEach(monthData => {
                             const income = monthData.pemasukan || 0;
-                            const expense = monthData.pemasukan || 0;
+                            const expense = monthData.pengeluaran || 0;
                             const balance = income - expense;
 
                             totalIncome += income;
@@ -2063,6 +2015,14 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button class="btn btn-sm btn-outline-success me-1" onclick="exportReportExcel()">
+                                <i class="bi bi-file-earmark-excel"></i> Excel
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="exportReportPDF()">
+                                <i class="bi bi-file-earmark-pdf"></i> PDF
+                            </button>
                         </div>
                         `;
 
@@ -2424,14 +2384,7 @@
 
                 // Custom Message Box (replaces alert)
                 function showMessageBox(message, type = 'info') {
-                    const alertPlaceholder = document.getElementById('alertPlaceholder') || document.createElement('div');
-                    alertPlaceholder.id = 'alertPlaceholder';
-                    alertPlaceholder.style.position = 'fixed';
-                    alertPlaceholder.style.top = '20px';
-                    alertPlaceholder.style.right = '20px';
-                    alertPlaceholder.style.zIndex = '1050';
-                    alertPlaceholder.style.maxWidth = '300px';
-                    document.body.appendChild(alertPlaceholder);
+                    const alertPlaceholder = document.getElementById('alertPlaceholder');
 
                     const wrapper = document.createElement('div');
                     wrapper.innerHTML = [
